@@ -44,10 +44,10 @@ const BestArticlesSection = () => {
   }, [viewportWidth, pageSize]);
 
   return (
-    <div>
-      <div>
-        <header>베스트 게시글</header>
-      </div>
+    <div className="flex flex-col m-auto gap-6 w-[1200px]">
+      <header className="font-bold text-xl text-[#111827]">
+        베스트 게시글
+      </header>
 
       <div className="flex justify-between">
         {bestArticles.map((article) => (
