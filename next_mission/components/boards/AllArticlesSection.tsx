@@ -1,10 +1,11 @@
-import { Article } from '@/types/articleTypes';
+import { Article, ArticleSortOption } from '@/types/articleTypes';
 import Button from '../common/Button';
 import SearchBar from '../ui/SearchBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import EmptyArticleList from '../ui/EmptyArticleList';
 import ArticleItem from './ArticleItem';
+import Dropdown from '../ui/Dropdown';
 
 interface AllArticlesSectionProps {
   initialArticles: Article[];
@@ -18,6 +19,10 @@ const AllArticlesSection: React.FC<AllArticlesSectionProps> = ({
 
   const router = useRouter();
   const keyword = (router.query.q as string) || '';
+
+  const handleSortSelection = (sortOption: ArticleSortOption) => {
+    setOrderBy(sortOption);
+  };
 
   const handleInputKeyword = (inputKeyword: string) => {
     const query = { ...router.query };
@@ -44,7 +49,7 @@ const AllArticlesSection: React.FC<AllArticlesSectionProps> = ({
     };
 
     fetchArticles();
-  }, [keyword]);
+  }, [orderBy, keyword]);
 
   return (
     <div className="flex flex-col gap-6 w-[1200px] m-auto">
@@ -53,8 +58,15 @@ const AllArticlesSection: React.FC<AllArticlesSectionProps> = ({
         <Button>글쓰기</Button>
       </div>
 
-      <div>
+      <div className="flex justify-between">
         <SearchBar onSearch={handleInputKeyword} />
+        <Dropdown
+          onSortSelection={handleSortSelection}
+          sortOptions={[
+            { key: 'recent', label: '최신순' },
+            { key: 'like', label: '인기순' },
+          ]}
+        />
       </div>
 
       {articles.length
