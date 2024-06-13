@@ -9,6 +9,8 @@ import {
 } from '@/types/productTypes';
 import useViewport from '@/hooks/useViewport';
 import { getProducts } from '@/api/itemApi';
+import SearchBar from '../ui/SearchBar';
+import { useRouter } from 'next/router';
 
 const getPageSize = (width: number) => {
   if (width < 768) {
@@ -26,6 +28,7 @@ const AllItemsSection = () => {
   const [itemList, setItemList] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const router = useRouter();
   const viewportWidth = useViewport();
 
   useEffect(() => {
@@ -62,11 +65,18 @@ const AllItemsSection = () => {
     setOrderBy(sortOption);
   };
 
+  const handleSearch = (searchKeyword: string) => {
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, q: searchKeyword },
+    });
+  };
+
   return (
     <section className="flex flex-col gap-6 w-[1200px] m-auto">
       <div className="flex">
         <header>판매 중인 상품</header>
-        <input type="text" />
+        <SearchBar onSearch={handleSearch} />
         <Button>상품 등록하기</Button>
         <Dropdown
           onSortSelection={handleSortSelection}
