@@ -58,13 +58,23 @@ const AllItemsSection = () => {
     fetchSortedData();
   }, [orderBy, pageSize]);
 
+  const handleSortSelection = (sortOption: ProductSortOption) => {
+    setOrderBy(sortOption);
+  };
+
   return (
     <section className="flex flex-col gap-6 w-[1200px] m-auto">
       <div className="flex">
         <header>판매 중인 상품</header>
         <input type="text" />
         <Button>상품 등록하기</Button>
-        <div>드랍다운 컴포넌트</div>
+        <Dropdown
+          onSortSelection={handleSortSelection}
+          sortOptions={[
+            { key: 'recent', label: '최신순' },
+            { key: 'favorite', label: '인기순' },
+          ]}
+        />
       </div>
       <div className="flex gap-10">
         {itemList?.map((item) => (
