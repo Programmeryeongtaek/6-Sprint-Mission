@@ -3,7 +3,7 @@ import Button from '../common/Button';
 import SearchBar from '../ui/SearchBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import EmptyArticleList from '../ui/EmptyArticleList';
+import Empty from '../ui/Empty';
 import ArticleItem from './ArticleItem';
 import Dropdown from '../ui/Dropdown';
 
@@ -73,9 +73,7 @@ const AllArticlesSection: React.FC<AllArticlesSectionProps> = ({
         ? articles.map((article) => (
             <ArticleItem key={`article-${article.id}`} article={article} />
           ))
-        : keyword && (
-            <EmptyArticleList text={`'${keyword}'로 검색된 결과가 없습니다.`} />
-          )}
+        : keyword && <Empty text={`'${keyword}'로 검색된 결과가 없습니다.`} />}
     </div>
   );
 };
