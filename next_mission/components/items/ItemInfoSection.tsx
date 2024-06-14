@@ -1,5 +1,7 @@
 import { Product } from '@/types/productTypes';
 import Image from 'next/image';
+import Tag from './Tag';
+import HeartIcon from '@/public/images/icons/ic_heart.svg';
 
 interface ItemInforSectionProps {
   product: Product;
@@ -26,9 +28,10 @@ const ItemInfoSection: React.FC<ItemInforSectionProps> = ({ product }) => {
           <p>{product.description}</p>
         </div>
 
-        <div>
+        <div className="flex flex-col">
           <h3>상품 태그</h3>
-          태그
+          <Tag tags={product.tags} />
+        </div>
         </div>
         <div>좋아요 버튼</div>
       </div>
