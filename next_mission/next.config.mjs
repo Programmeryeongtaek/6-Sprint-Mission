@@ -5,9 +5,17 @@ const nextConfig = {
   // 외부 이미지 주소
   // 작성하지 않으면, <ForwardRef> component: at eval 에러발생
   images: {
-    domains: [
-      'sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
-      'example.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+        pathname: '**',
+      },
     ],
   },
 
