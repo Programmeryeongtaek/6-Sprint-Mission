@@ -32,8 +32,12 @@ const ItemInfoSection: React.FC<ItemInforSectionProps> = ({ product }) => {
           <h3>상품 태그</h3>
           <Tag tags={product.tags} />
         </div>
+        <div>
+          <button className="flex">
+            <HeartIcon width={26.8} height={23.3} />
+            {product.favoriteCount.toLocaleString()}
+          </button>
         </div>
-        <div>좋아요 버튼</div>
       </div>
     </div>
   );
