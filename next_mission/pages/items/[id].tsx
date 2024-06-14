@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { getProductDetail } from '@/api/itemApi';
 import Link from 'next/link';
 import BackIcon from '@/public/images/icons/ic_back.svg';
+import ItemCommentSection from '@/components/items/ItemCommentSection';
 
 const ItemPage: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -60,8 +61,7 @@ const ItemPage: React.FC = () => {
       <div className="flex flex-col">
         <ItemInfoSection product={product} />
         <hr />
-        <div>문의하기 / 댓글 작성</div>
-        <div>댓글 부분</div>
+        <ItemCommentSection productId={productId} />
         <div className="flex">
           <Link href="/items">목록으로 돌아가기</Link>
           <BackIcon />
