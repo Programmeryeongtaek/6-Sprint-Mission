@@ -11,7 +11,7 @@ import useViewport from '@/hooks/useViewport';
 import { getProducts } from '@/api/itemApi';
 import SearchBar from '../ui/SearchBar';
 import { useRouter } from 'next/router';
-import LoadingSpinner from '../ui/LoadingSpimmer';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 const getPageSize = (width: number) => {
   if (width < 768) {
