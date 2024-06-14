@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'TopBannerImage': "url('/images/home/hero-image.png')",
+        'BottomBannerImage': "url('/images/home/bottom-banner-image.png')",
+      },
       colors: {
         primary: {
           700: '#1251aa',
