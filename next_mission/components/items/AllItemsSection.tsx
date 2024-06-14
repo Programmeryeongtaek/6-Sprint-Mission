@@ -11,6 +11,7 @@ import useViewport from '@/hooks/useViewport';
 import { getProducts } from '@/api/itemApi';
 import SearchBar from '../ui/SearchBar';
 import { useRouter } from 'next/router';
+import LoadingSpinner from '../ui/LoadingSpimmer';
 
 const getPageSize = (width: number) => {
   if (width < 768) {
@@ -73,27 +74,32 @@ const AllItemsSection = () => {
   };
 
   return (
-    <section className="flex flex-col gap-6 w-[1200px] m-auto">
-      <div className="flex">
-        <header>판매 중인 상품</header>
-        <SearchBar onSearch={handleSearch} />
-        <Button>상품 등록하기</Button>
-        <Dropdown
-          onSortSelection={handleSortSelection}
-          sortOptions={[
-            { key: 'recent', label: '최신순' },
-            { key: 'favorite', label: '인기순' },
-          ]}
-        />
-      </div>
-      <div className="flex gap-10">
-        {itemList?.map((item) => (
-          <ItemCard item={item} key={`market-item-${item.id}`} />
-        ))}
-      </div>
-
-      <div>페이지 네이션</div>
-    </section>
+    <>
+      <section className="flex flex-col gap-6 w-[1200px] m-auto">
+        <div className="flex">
+          <header>판매 중인 상품</header>
+          <SearchBar onSearch={handleSearch} />
+          <Button>상품 등록하기</Button>
+          <Dropdown
+            onSortSelection={handleSortSelection}
+            sortOptions={[
+              { key: 'recent', label: '최신순' },
+              { key: 'favorite', label: '인기순' },
+            ]}
+          />
+        </div>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <div className="flex gap-10">
+            {itemList?.map((item) => (
+              <ItemCard item={item} key={`market-item-${item.id}`} />
+            ))}
+          </div>
+        )}
+        <div>페이지 네이션</div>
+      </section>
+    </>
   );
 };
 
