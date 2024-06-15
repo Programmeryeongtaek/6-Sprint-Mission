@@ -1,7 +1,7 @@
 import { Article } from '@/types/articleTypes';
 import Image from 'next/image';
 import Link from 'next/link';
-import LikeCount from '../common/LikeCount';
+import LikeCount from '../ui/LikeCount';
 import { format } from 'date-fns';
 
 // Todo : LikeCount gap 동적으로 입력하기
@@ -42,7 +42,13 @@ const ArticleItem: React.FC<ArticleProps> = ({ article }) => {
                 <span className="text-[#9ca3af] text-sm">{dateString}</span>
               </div>
             </div>
-            <LikeCount count={article.likeCount} iconWidth={24} />
+            <LikeCount
+              count={article.likeCount}
+              iconWidth={24}
+              gap={8}
+              leading={24}
+              fontSize={16}
+            />
           </div>
         </div>
       </Link>

@@ -1,7 +1,7 @@
 import { Product } from '@/types/productTypes';
 import Image from 'next/image';
 import Link from 'next/link';
-import LikeCount from '../common/LikeCount';
+import LikeCount from '../ui/LikeCount';
 
 interface ItemCardProps {
   item: Product;

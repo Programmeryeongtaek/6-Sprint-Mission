@@ -3,7 +3,7 @@ import MedalIcon from '@/public/images/icons/ic_medal.svg';
 import Image from 'next/image';
 import { Article } from '@/types/articleTypes';
 import { format } from 'date-fns';
-import LikeCount from '../common/LikeCount';
+import LikeCount from '../ui/LikeCount';
 
 const BestArticleCard = ({ article }: { article: Article }) => {
   const dateString = format(article.createdAt, 'yyyy. MM. dd');

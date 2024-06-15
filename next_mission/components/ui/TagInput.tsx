@@ -1,6 +1,6 @@
 import { KeyboardEvent, useState } from 'react';
 import Input from './Input';
-import Button from '../common/Button';
+import Button from './Button';
 
 interface TagInputProps {
   tags: string[];

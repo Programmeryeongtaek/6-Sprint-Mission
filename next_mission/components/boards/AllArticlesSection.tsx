@@ -1,5 +1,5 @@
 import { Article, ArticleSortOption } from '@/types/articleTypes';
-import Button from '../common/Button';
+import Button from '../ui/Button';
 import SearchBar from '../ui/SearchBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
