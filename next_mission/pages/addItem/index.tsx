@@ -1,7 +1,7 @@
 import Button from '@/components/common/Button';
 import Input from '@/components/ui/Input';
 import TagInput from '@/components/ui/TagInput';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 const addItemPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -21,8 +21,13 @@ const addItemPage: React.FC = () => {
 
   const isSubmitDisabled = !name || !description || !price || !tags.length;
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    // Todo: Post 로직 추가
+  };
+
   return (
-    <form className="flex flex-col gap-3" onSubmit={}>
+    <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
       <header>
         <h1>상품 등록하기</h1>
         <Button href="/" type="submit" disabled={isSubmitDisabled}>
