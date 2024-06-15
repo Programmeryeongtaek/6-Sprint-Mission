@@ -3,8 +3,13 @@ import Logo from '@/public/images/logo/logo.svg';
 import Image from 'next/image';
 import GoogleIcon from '@/public/images/social/google-logo.png';
 import KakaoIcon from '@/public/images/social/kakao-logo.png';
+import Input from '@/components/ui/Input';
+import { useState } from 'react';
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className="flex flex-col items-center">
       <Link href="/" aria-label="홈으로 이동">
@@ -13,14 +18,26 @@ const LoginPage = () => {
 
       <div className="flex flex-col gap-6 w-[640px]">
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-[10px]">
-            <label htmlFor="">이메일</label>
-            <input type="email" placeholder="이메일을 입력해주세요" />
-          </div>
-          <div className="flex flex-col gap-[10px]">
-            <label htmlFor="">비밀번호</label>
-            <input type="password" placeholder="이메일을 입력해주세요" />
-          </div>
+          <Input
+            id="email"
+            label="이메일"
+            value={email}
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="이메일을 입력해주세요"
+            gap={10}
+          />
+
+          <Input
+            id="password"
+            label="비밀번호"
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="비밀번호를 입력해주세요"
+            gap={10}
+          />
+
           <button>로그인</button>
         </div>
         <div className="flex justify-between">
