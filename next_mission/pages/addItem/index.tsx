@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button';
+import ImageUpload from '@/components/ui/ImageUpload';
 import Input from '@/components/ui/Input';
 import TagInput from '@/components/ui/TagInput';
 import { FormEvent, useState } from 'react';
@@ -34,6 +35,8 @@ const addItemPage: React.FC = () => {
           등록
         </Button>
       </header>
+
+      <ImageUpload title="상품 이미지" />
 
       <Input
         id="name"
