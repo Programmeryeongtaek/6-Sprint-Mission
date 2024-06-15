@@ -11,6 +11,7 @@ interface InputProps {
   isTextArea?: boolean;
   errorMessage?: string;
   type?: string;
+  gap?: number;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -24,9 +25,10 @@ const Input: React.FC<InputProps> = ({
   isTextArea,
   errorMessage,
   type = 'text',
+  gap = 8,
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className={`flex flex-col gap-[${gap}px]`}>
       {label && <label htmlFor={id}>{label}</label>}
 
       {isTextArea ? (
