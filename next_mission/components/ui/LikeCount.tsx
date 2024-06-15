@@ -5,21 +5,26 @@ interface LickCountProps {
   iconWidth?: number;
   gap?: number;
   fontSize?: number;
+  leading?: number;
 }
 
 const LikeCount: React.FC<LickCountProps> = ({
   count,
-  iconWidth = 16,
-  fontSize = 16,
-  gap = 4,
+  iconWidth,
+  fontSize,
+  gap,
+  leading,
 }) => {
   const displayCount = count >= 10000 ? '9999+' : count.toString();
 
   return (
-    // Todo : gap, fontSize를 동적으로 표현
-    <div className="flex text-base items-center text-[#6B7280]">
-      <HeartIcon width={iconWidth} alt="좋아요 아이콘" />
-      {displayCount}
+    <div className={`flex gap-[${gap}px] items-center text-[#6B7280]`}>
+      <div>
+        <HeartIcon width={iconWidth} height={iconWidth} alt="좋아요 아이콘" />
+      </div>
+      <span className={`text-[${fontSize}px] leading-[${leading}px]`}>
+        {displayCount}
+      </span>
     </div>
   );
 };
