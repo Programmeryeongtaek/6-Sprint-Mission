@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   type,
   disabled,
 }) => {
-  return <Link href={`/${href}`}>{children}</Link>;
+  return <Link href="">{children}</Link>;
 
   // 이미지가 있을 때 <Image src={CloseIcon} />;
 };
