@@ -84,26 +84,10 @@ export default function Home() {
             <p>FAQ</p>
           </div>
           <div className="flex gap-3">
-            <FaceBookIcon
-              width={20}
-              height={20}
-              alt="페이스북으로 이동"
-            ></FaceBookIcon>
-            <TwitterIcon
-              width={20}
-              height={20}
-              alt="트위터으로 이동"
-            ></TwitterIcon>
-            <YoutubeIcon
-              width={20}
-              height={20}
-              alt="유튜브로 이동"
-            ></YoutubeIcon>
-            <InstagramIcon
-              width={20}
-              height={20}
-              alt="인스타그램으로 이동"
-            ></InstagramIcon>
+            <FaceBookIcon width={20} height={20} alt="페이스북으로 이동" />
+            <TwitterIcon width={20} height={20} alt="트위터으로 이동" />
+            <YoutubeIcon width={20} height={20} alt="유튜브로 이동" />
+            <InstagramIcon width={20} height={20} alt="인스타그램으로 이동" />
           </div>
         </footer>
       </div>

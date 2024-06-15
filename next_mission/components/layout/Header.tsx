@@ -18,7 +18,7 @@ const Header = () => {
           <ul className="flex text-center">
             <li className="w-[109px]">
               <Link
-                href="/freeBoards"
+                href="/boards"
                 className={pathname === '/boards' ? 'text-[blue]' : ''}
               >
                 자유게시판
