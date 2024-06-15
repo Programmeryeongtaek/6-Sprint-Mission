@@ -1,4 +1,4 @@
-import Button from '@/components/common/Button';
+import Button from '@/components/ui/Button';
 import ImageUpload from '@/components/ui/ImageUpload';
 import Input from '@/components/ui/Input';
 import TagInput from '@/components/ui/TagInput';
