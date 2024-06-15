@@ -2,27 +2,33 @@ import HeartIcon from '@/public/images/icons/ic_heart.svg';
 
 interface LickCountProps {
   count: number;
-  iconWidth?: number;
+  width?: number;
+  height?: number;
   gap?: number;
   fontSize?: number;
   leading?: number;
+  fontWeight?: number;
+  color?: string;
 }
 
 const LikeCount: React.FC<LickCountProps> = ({
   count,
-  iconWidth,
+  width,
+  height,
   fontSize,
   gap,
   leading,
+  fontWeight,
+  color,
 }) => {
   const displayCount = count >= 10000 ? '9999+' : count.toString();
 
   return (
-    <div className={`flex gap-[${gap}px] items-center text-[#6B7280]`}>
-      <div>
-        <HeartIcon width={iconWidth} height={iconWidth} alt="좋아요 아이콘" />
-      </div>
-      <span className={`text-[${fontSize}px] leading-[${leading}px]`}>
+    <div className={`flex gap-[${gap}px] items-center text-[#${color}]`}>
+      <HeartIcon width={width} height={height} alt="좋아요 아이콘" />
+      <span
+        className={`text-[${fontSize}px] leading-[${leading}px] font-[${fontWeight}px]`}
+      >
         {displayCount}
       </span>
     </div>
