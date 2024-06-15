@@ -44,7 +44,8 @@ const ArticleItem: React.FC<ArticleProps> = ({ article }) => {
             </div>
             <LikeCount
               count={article.likeCount}
-              iconWidth={24}
+              width={24}
+              height={24}
               gap={8}
               leading={24}
               fontSize={16}

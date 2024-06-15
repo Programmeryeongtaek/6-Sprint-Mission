@@ -21,7 +21,16 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
       <div>
         <h2>{item.name}</h2>
         <p>{item.price.toLocaleString()}원</p>
-        <LikeCount count={item.favoriteCount} fontSize={12} />
+        <LikeCount
+          count={item.favoriteCount}
+          fontSize={12}
+          gap={8}
+          width={13.4}
+          height={11.65}
+          leading={14.32}
+          fontWeight={500}
+          color={'4b5563'}
+        />
       </div>
     </Link>
   );
